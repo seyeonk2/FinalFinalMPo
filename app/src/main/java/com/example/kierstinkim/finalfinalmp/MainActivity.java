@@ -16,7 +16,11 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -139,6 +143,20 @@ public class MainActivity extends AppCompatActivity {
     }
     private String getThai() {
         return "none";
+    }
+    private String getRandom(final String json) {
+        if (json == null) {
+            return "No resturant available";
+        }
+        JsonParser parser = new JsonParser();
+        JsonObject result = parser.parse(json).getAsJsonObject();
+        JsonArray businesses = result.getAsJsonArray("businesses");
+        int x = (int)(Math.random()) * businesses.size();
+        JsonArray array = businesses.get(x).getAsJsonArray();
+        int y = (int)(Math.random()) * array.size();
+        JsonObject categories = array.get(y).getAsJsonObject();
+        String title = categories.getAsJsonObject("title").getAsString();
+        return title;
     }
 }
 
