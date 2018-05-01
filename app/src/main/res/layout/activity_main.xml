@@ -8,9 +8,6 @@
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
-    <meta-data
-        android:name="https://api.yelp.com/v3/businesses/search.API_KEY"
-        android:value="VSLHy-bLr9G_5YsRE2q0qEz7ZeMJGndj4d5FbN1FrcRjWu-KKq-Kipk_MAeiRohL6XHKl9h8e24uvK2Bja58Wsg8JTJhsgK9GLiDKxjfykBF97Y6PWVzs6-4C6jlWnYx"
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
